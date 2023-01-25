@@ -11,6 +11,11 @@
 
                     <div class="col">
                         <h6>@yield('page-title')</h6>
+                        <div class="d-flex justify-content-end mt-3">
+                            <a class="btn btn-primary mb-0"  href="{{ route('admin.daily.download') }}" target="__blank">
+                                <span class="d-flex align-items-center"><i class="fa-solid fa-print"></i>&#160; Print</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
@@ -24,7 +29,7 @@
                                     </th>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Patient
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Transaction
+                                    <th class="text-uppercase text-secondary  text-center  text-xxs font-weight-bolder opacity-7">Transaction
                                     </th>
 
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Amount

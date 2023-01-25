@@ -51,12 +51,12 @@
                         <div class="card-body">
                             <h5 class="card-title mb-3 text-center  text-info">Owner Information</h5>
                             <div class="row mb-3">
+
                                 <div class=" col-md-12 ">
                                     <label>Owner Name<span class="text-danger ">*</span></label>
                                     <input type="text" name="name"
                                         class="form-control @error('name') is-invalid @enderror" placeholder="Enter Name "
-                                        wire:model='name'>
-
+                                        wire:model='name' required>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -64,23 +64,26 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="row mb-3">
+
                                 <div class="col-md-6 ">
                                     <label>Email<span class="text-danger ">*</span></label>
-                                    <input type="text" name="email"
+                                    <input type="email" name="email"
                                         class="form-control @error('email') is-invalid @enderror" placeholder="Enter Email"
-                                        wire:model='email'>
+                                        wire:model='email' required>
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
+
                                 <div class="col-md-6 ">
                                     <label>Contact number<span class="text-danger ">*</span></label>
-                                    <input type="text" name="number"
+                                    <input type="tel" name="number"
                                         class="form-control @error('number') is-invalid @enderror"
-                                        placeholder="Enter Contact number" wire:model='number'>
+                                        placeholder="Enter Contact number" wire:model='number' required maxlength="12">
                                     @error('number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -93,7 +96,7 @@
                                 <div class="col-md-12 ">
                                     <label>Address<span class="text-danger ">*</span></label>
                                     <input type="text" name="address" class="form-control " placeholder="Enter Address "
-                                        wire:model='address'>
+                                        wire:model='address' required>
                                     @error('address')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -110,7 +113,7 @@
                                     <label>Pet's Name<span class="text-danger ">*</span></label>
                                     <input type="text " name="pet_name"
                                         class="form-control @error('pet_name') is-invalid @enderror"
-                                        placeholder="Enter Pet name " wire:model='pet_name'>
+                                        placeholder="Enter Pet name " wire:model='pet_name' required>
                                     @error('pet_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -121,7 +124,7 @@
                                     <label>Color<span class="text-danger ">*</span></label>
                                     <input type="text " name="color"
                                         class="form-control @error('color') is-invalid @enderror" placeholder="Color"
-                                        wire:model='color'>
+                                        wire:model='color' required>
                                     @error('color')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -134,18 +137,42 @@
                                     <label>Type of pet<span class="text-danger ">*</span></label>
                                     <input type="text " name="pet_type"
                                         class="form-control @error('pet_type') is-invalid @enderror"
-                                        placeholder="Enter type of pet " wire:model='pet_type'>
+                                        placeholder="Enter type of pet " wire:model='pet_type' required>
                                     @error('pet_type')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
                                 </div>
-                                <div class="col-md-6 ">
+                                <div class="col-md-6">
+                                    <label>Breed<span class="text-danger ">*</span></label>
+                                    <input type="text " name="breed"
+                                        class="form-control  @error('breed') is-invalid @enderror" placeholder="Enter breed "
+                                        wire:model='breed' required>
+                                    @error('breed')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 mt-1">
+                                    <label>Birthdate<span class="text-danger ">*</span></label>
+                                    <input type="date" name="birthdate"
+                                        id="birthdate"class="form-control  @error('birthdate') is-invalid @enderror"
+                                        placeholder="Enter birthdate " wire:model='birthdate' required>
+                                    @error('birthdate')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-6 mt-1">
                                     <label>Age<span class="text-danger ">*</span></label>
                                     <input type="number" name="age"
                                         class="form-control  @error('age') is-invalid @enderror" placeholder="Enter Age"
-                                        wire:model='age'>
+                                        wire:model='age' required>
                                     @error('age')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -153,22 +180,12 @@
                                     @enderror
                                 </div>
                             </div>
+
                             <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label>Birthdate<span class="text-danger ">*</span></label>
-                                    <input type="date" name="birthdate"
-                                        id="birthdate"class="form-control  @error('birthdate') is-invalid @enderror"
-                                        placeholder="Enter birthdate " wire:model='birthdate'>
-                                    @error('birthdate')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
                                 <div class="col-md-6">
                                     <label>Gender<span class="text-danger ">*</span></label>
                                     <select class="form-select @error('gender') is-invalid @enderror"
-                                        aria-label="Default select example"name="gender" wire:model='gender'>
+                                        aria-label="Default select example"name="gender" wire:model='gender' required>
                                         <option selected>Select Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
@@ -180,36 +197,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <label>Breed<span class="text-danger ">*</span></label>
-                                    <input type="text " name="breed"
-                                        class="form-control  @error('breed') is-invalid @enderror" placeholder="Enter breed "
-                                        wire:model='breed'>
-                                    @error('breed')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                {{--   <div class="col-md-6">
-                                    <label>Color<span class="text-danger ">*</span></label>
-                                    <input type="text " name="color"
-                                        class="form-control  @error('color') is-invalid @enderror" placeholder="Enter color "
-                                        wire:model='color'>
-                                    @error('color')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div> --}}
-                            </div>
+
                             <div class="row mb-3">
                                 <div class="col-md-12 ">
                                     <label>Reason of Appointment<span class="text-danger ">*</span></label>
                                     <select class="form-select @error('reason_id') is-invalid @enderror" name="reason_id"
-                                        aria-label="Default select example " wire:model='reason_id'>
-                                        <option selected>Open this and select</option>
+                                        aria-label="Default select example " wire:model='reason_id' required>
+                                        <option selected value="">Open this and select</option>
                                         @foreach ($services as $service)
                                             <option value="{{ $service->id }}">{{ $service->service }}</option>
                                         @endforeach
@@ -226,7 +220,7 @@
                                     <label>Date<span class="text-danger">*</span></label>
                                     <input type="date" name="date" id="date"
                                         class="form-control @error('date') is-invalid @enderror" placeholder="Enter Date"
-                                        wire:model='date'>
+                                        wire:model='date' required>
                                     @error('date')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -238,7 +232,7 @@
                                     <label>Time<span class="text-danger">*</span></label>
                                     <input type="text" name="time" id="time"
                                         class="form-control @error('time') is-invalid @enderror" placeholder="Enter Time"
-                                        wire:model='time'>
+                                        wire:model='time' required>
                                     @error('time')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -298,7 +292,7 @@
                                         <div class="col-md-7 ">
                                             <label>Pets</label>
                                             <select class="form-select @error('pet_id') is-invalid @enderror" name="pet_id"
-                                                aria-label="Default select example " wire:model='pet_id'>
+                                                aria-label="Default select example " wire:model='pet_id' required>
                                                 <option selected>Open this and select</option>
                                                 @foreach ($pets as $pet)
                                                     <option value="{{ $pet->id }}">{{ $pet->pet_name }}</option>
@@ -329,7 +323,7 @@
                                             <label>Pet's Name<span class="text-danger ">*</span></label>
                                             <input type="text " name="pet_name"
                                                 class="form-control @error('pet_name') is-invalid @enderror"
-                                                placeholder="Enter Pet name " wire:model='pet_name'>
+                                                placeholder="Enter Pet name " wire:model='pet_name' required>
                                             @error('pet_name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -342,7 +336,7 @@
                                             <label>Type of pet<span class="text-danger ">*</span></label>
                                             <input type="text " name="pet_type"
                                                 class="form-control @error('pet_type') is-invalid @enderror"
-                                                placeholder="Enter type of pet " wire:model='pet_type'>
+                                                placeholder="Enter type of pet " wire:model='pet_type' required>
                                             @error('pet_type')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -353,7 +347,7 @@
                                             <label>Age<span class="text-danger ">*</span></label>
                                             <input type="number" name="age"
                                                 class="form-control  @error('age') is-invalid @enderror"
-                                                placeholder="Enter Age" wire:model='age'>
+                                                placeholder="Enter Age" wire:model='age' required>
                                             @error('age')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -366,7 +360,7 @@
                                             <label>Birthdate<span class="text-danger ">*</span></label>
                                             <input type="date" name="birthdate"
                                                 id="birthdate"class="form-control  @error('birthdate') is-invalid @enderror"
-                                                placeholder="Enter birthdate " wire:model='birthdate'>
+                                                placeholder="Enter birthdate " wire:model='birthdate' required>
                                             @error('birthdate')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -376,7 +370,8 @@
                                         <div class="col-md-6">
                                             <label>Gender<span class="text-danger ">*</span></label>
                                             <select class="form-select @error('gender') is-invalid @enderror"
-                                                aria-label="Default select example"name="gender" wire:model='gender'>
+                                                aria-label="Default select example"name="gender" wire:model='gender'
+                                                required>
                                                 <option selected>Selecet Gender</option>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
@@ -393,7 +388,7 @@
                                             <label>Breed<span class="text-danger ">*</span></label>
                                             <input type="text " name="breed"
                                                 class="form-control  @error('breed') is-invalid @enderror"
-                                                placeholder="Enter breed " wire:model='breed'>
+                                                placeholder="Enter breed " wire:model='breed' required>
                                             @error('breed')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -404,7 +399,7 @@
                                             <label>Color<span class="text-danger ">*</span></label>
                                             <input type="text " name="color"
                                                 class="form-control  @error('color') is-invalid @enderror"
-                                                placeholder="Enter color " wire:model='color'>
+                                                placeholder="Enter color " wire:model='color' required>
                                             @error('color')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -428,8 +423,8 @@
                                     <div class="col-md-12 ">
                                         <label>Reason of Appointment<span class="text-danger ">*</span></label>
                                         <select class="form-select @error('reason_id') is-invalid @enderror" name="reason_id"
-                                            aria-label="Default select example " wire:model='reason_id'>
-                                            <option selected>Open this and select</option>
+                                            aria-label="Default select example " wire:model='reason_id' required>
+                                            <option selected value="">Open this and select</option>
                                             @foreach ($services as $service)
                                                 <option value="{{ $service->id }}">{{ $service->service }}</option>
                                             @endforeach
@@ -446,7 +441,7 @@
                                         <label>Date<span class="text-danger">*</span></label>
                                         <input type="date" name="date" id="date"
                                             class="form-control @error('date') is-invalid @enderror" placeholder="Enter Date"
-                                            wire:model='date'>
+                                            wire:model='date' required>
                                         @error('date')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -458,7 +453,7 @@
                                         <label>Time<span class="text-danger">*</span></label>
                                         <input type="type" name="time" id="time"
                                             class="form-control @error('time') is-invalid @enderror" placeholder="Enter Time"
-                                            wire:model='time'>
+                                            wire:model='time' required>
                                         @error('time')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -507,7 +502,7 @@
                                 <label for="emailAddress" class="form-label">Email</label>
                                 <input type="email" class="form-control  @error('emailAddress') is-invalid @enderror"
                                     id="emailAddress" name="emailAddress" placeholder="name@example.com"
-                                    wire:model='emailAddress'>
+                                    wire:model='emailAddress' required>
                                 @error('emailAddress')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -529,7 +524,7 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 <img class="height-30 width-30" src="{{ asset('images/header.png') }}" alt="">
                             </div>
-                          
+
                             <h4 class="mb-2  text-center text-white ">Cancel Appointment</h4>
                             <h6 class="text-white text-center ">Petworks Veterinary Clinic</h6>
 
@@ -629,7 +624,7 @@
                                 <label for="emailAddress" class="form-label">Email</label>
                                 <input type="email" class="form-control  @error('emailAddress') is-invalid @enderror"
                                     id="emailAddress" name="emailAddress" placeholder="Enter your email address"
-                                    wire:model='emailAddress'>
+                                    wire:model='emailAddress' required>
                                 @error('emailAddress')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

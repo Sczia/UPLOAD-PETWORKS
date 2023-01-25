@@ -84,4 +84,10 @@ class DailyController extends Controller
     {
         //
     }
+
+    public function download()
+    {
+        $daylies = Daily::with('appointment')->whereDay('created_at','=',now()->format('d'))->whereMonth('created_at','=',now()->format('m'))->get();
+        return view('Petworks.admin.inventory.daily.modal._pdf',compact('daylies'));
+    }
 }
